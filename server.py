@@ -17,8 +17,6 @@ ALLOWED_METHODS = os.getenv("ALLOWED_METHODS").split(",")
 ALLOWED_HEADERS = os.getenv("ALLOWED_HEADERS").split(",")
 API_KEY = os.getenv("API_KEY")
 MODEL_NAME = os.getenv("MODEL_NAME")
-print(API_KEY)
-print(MODEL_NAME)
 
 
 app.add_middleware(
