@@ -3,11 +3,12 @@ from pathlib import Path
 import os
 import uuid
 import fitz
-from .function import call_genai_api
+from .function import call_genai_api, connect_db,  insert_file_record
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 from pathlib import Path
 from pydantic import BaseModel
+
 
 ALLOWED_EXTENSIONS = {".pdf"}
 max_file_size: int = 10  # MB
@@ -45,6 +46,18 @@ async def handle_upload_file(file):
 
         with open(file_location, "wb") as file_object:
             file_object.write(file.file.read())
+        
+        # ENTRY IN DB
+        #connect db
+        conn = connect_db()
+        print(conn)
+
+        print(file.filename)
+        print(unique_filename)
+
+        #add entry in db
+        insert_file_record(conn, unique_filename, file.filename)
+
 
         # TEXT EXTRACTION
         doc = fitz.open(file_location)
