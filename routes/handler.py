@@ -76,6 +76,7 @@ async def handle_upload_file(file):
 async def handle_ask_question(data):
     try:
         filename, question = data.filename, data.question
+        print("Question : ", question)
         # FILE EXISTS
         if filename not in file_contents:
             raise HTTPException(
@@ -85,6 +86,7 @@ async def handle_ask_question(data):
         # API CALLED
         contents = file_contents[filename]
         answer = call_genai_api(contents, question)
+        print("Answer: ",answer)
         return JSONResponse(content={"answer": answer})
 
     except Exception as e:

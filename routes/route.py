@@ -14,7 +14,7 @@ class TestData(BaseModel):
 # testing
 @router.get("/")
 async def home():
-    return "API working"
+    return  {"status": 200, "message": "API working"}
 
 
 # upload file
