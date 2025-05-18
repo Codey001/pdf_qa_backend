@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import uuid
 import fitz
-from .function import call_genai_api, connect_db,  insert_file_record
+from .function import call_genai_api,  insert_file_record
 from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 from pathlib import Path
