@@ -37,18 +37,18 @@ def call_genai_api(context: str, question: str) -> str:
 
     return response.text
 
-def connect_db():
-    # Get the database URL from environment variables
-    conn = psycopg2.connect(
-    database=db_url.path[1:],
-    user=db_url.username,
-    password=db_url.password,
-    host=db_url.hostname,
-    port=db_url.port,
-)
-    #  create_table
-    create_table(conn)
-    return conn
+# def connect_db():
+#     # Get the database URL from environment variables
+#     conn = psycopg2.connect(
+#     database=db_url.path[1:],
+#     user=db_url.username,
+#     password=db_url.password,
+#     host=db_url.hostname,
+#     port=db_url.port,
+# )
+#     #  create_table
+#     create_table(conn)
+#     return conn
 
 def create_table(conn):
     cur = conn.cursor()

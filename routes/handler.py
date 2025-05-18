@@ -48,15 +48,15 @@ async def handle_upload_file(file):
             file_object.write(file.file.read())
         
         # ENTRY IN DB
-        #connect db
-        conn = connect_db()
-        print(conn)
+        # #connect db
+        # conn = connect_db()
+        # print(conn)
 
-        print(file.filename)
-        print(unique_filename)
+        # print(file.filename)
+        # print(unique_filename)
 
-        #add entry in db
-        insert_file_record(conn, unique_filename, file.filename)
+        # #add entry in db
+        # insert_file_record(conn, unique_filename, file.filename)
 
 
         # TEXT EXTRACTION
